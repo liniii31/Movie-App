@@ -5,8 +5,8 @@ import React, { useEffect, useState } from 'react';
 
 function App() {
   let [search, setSearch] = useState("harry");
-  let [zoomMessage, setZoomMessage] = useState("Add to Favorite")
   let [poster, setPoster] = useState([]);
+  let [fav, setFav] = useState([])
   useEffect(() => {
     axios.get("http://www.omdbapi.com/?s=harry&apikey=eb04909e")
       .then(response => {
@@ -39,11 +39,14 @@ function App() {
         })
     }
   }
-  function zoom() {
-    if (zoomMessage === "Add to Favorite") {
-      setZoomMessage("Remove from Favorite");
-    } else {
-      setZoomMessage("Add to Favorite");
+  function add(poster) {
+    setFav([...fav, poster]);
+  }
+  function remove(index) {
+    var array = [...fav]; // make a separate copy of the array
+    if (index !== -1) {
+      array.splice(index, 1);
+      setFav([...array]);
     }
   }
   return (
@@ -63,7 +66,23 @@ function App() {
           return (
             <div key={i} className="poster">
               <img src={value.Poster} alt="poster images" />
-              <div className="favorite" onClick={zoom}>{zoomMessage}<img src={heart} alt="heart" width="15px" height="15px" /></div>
+              <div className="favorite" onClick={() => add(value.Poster)}>Add to Favorite<img src={heart} alt="heart" width="15px" height="15px" /></div>
+            </div>
+          )
+        })}
+      </div>
+      <header>
+        <div className="heading">
+          <h1>Favorites.</h1>
+        </div>
+      </header>
+      <hr />
+      <div className='favorites'>
+        {fav.map((value, i) => {
+          return (
+            <div key={i} className="poster">
+              <img src={value} alt="poster images" />
+              <div className="removefavorite" onClick={() => remove(i)}>Remove from Favorite<img src={heart} alt="heart" width="15px" height="15px" /></div>
             </div>
           )
         })}

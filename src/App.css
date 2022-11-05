@@ -18,7 +18,7 @@ header{
   display:flex;
   padding : 30px;
 }
-.movies{
+.movies,.favorites{
   display: flex;
   flex-wrap: wrap;
 }
@@ -31,7 +31,7 @@ header{
 .poster:hover > .favorite{
   display: block;
 }
-.favorite{
+.favorite, .removefavorite{
   display: none;
   position: absolute;
   top :400px;
@@ -39,8 +39,10 @@ header{
   background-color: rgba(0,0,0,0.8);
   color:white;
   text-align: center;
-  padding:5px;
-    
+  padding:5px;    
+}
+.poster:hover > .removefavorite{
+  display: block;
 }
 .favorite img{
   padding-left:10px;
