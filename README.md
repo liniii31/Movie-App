@@ -15,8 +15,14 @@
 - npm start
 
 ## Design
-
+## Landing Page
 ![Desktop Design](./Images/Landingpage.png)
+
+## Search
 ![Desktop Design](./Images/search.png)
+
+## Favorites
 ![Desktop Design](./Images/addfavorites.png)
+
+## Remove favorites
 ![Desktop Design](./Images/removefavorites.png)
