@@ -1,0 +1,47 @@
+:root{
+  background-color: black;
+}
+.App{
+  background-color: black;
+}
+header{
+  background-color: black;
+  color:white;
+  height:80px;
+}
+.heading{
+  float: left;
+  padding-left:30px;
+}
+.search-bar{
+  float: right;
+  display:flex;
+  padding : 30px;
+}
+.movies{
+  display: flex;
+  flex-wrap: wrap;
+}
+.poster{
+  margin:1px;  
+}
+.poster:hover{
+  transform: scale(1.2);
+}
+.poster:hover > .favorite{
+  display: block;
+}
+.favorite{
+  display: none;
+  position: absolute;
+  top :400px;
+  width:290px;
+  background-color: rgba(0,0,0,0.8);
+  color:white;
+  text-align: center;
+  padding:5px;
+    
+}
+.favorite img{
+  padding-left:10px;
+}
